@@ -1,0 +1,38 @@
+>>>> explain join SELECT MIN(lt.link) AS link_type,
+       MIN(t1.title) AS first_movie,
+       MIN(t2.title) AS second_movie
+FROM keyword AS k,
+     link_type AS lt,
+     movie_keyword AS mk,
+     movie_link AS ml,
+     title AS t1,
+     title AS t2
+WHERE k.keyword ='character-name-in-title'
+  AND mk.keyword_id = k.id
+  AND t1.id = mk.movie_id
+  AND ml.movie_id = t1.id
+  AND ml.linked_movie_id = t2.id
+  AND lt.id = ml.link_type_id
+  AND mk.movie_id = t1.id;
+HashJoin: INNER
+├── Build
+│   └── HashJoin: INNER
+│       ├── Build
+│       │   └── HashJoin: INNER
+│       │       ├── Build
+│       │       │   └── HashJoin: INNER
+│       │       │       ├── Build
+│       │       │       │   └── HashJoin: INNER
+│       │       │       │       ├── Build
+│       │       │       │       │   └── Scan: default.imdb.keyword (#0) (read rows: 134170)
+│       │       │       │       └── Probe
+│       │       │       │           └── Scan: default.imdb.movie_keyword (#2) (read rows: 4523930)
+│       │       │       └── Probe
+│       │       │           └── Scan: default.imdb.movie_link (#3) (read rows: 29997)
+│       │       └── Probe
+│       │           └── Scan: default.imdb.link_type (#1) (read rows: 18)
+│       └── Probe
+│           └── Scan: default.imdb.title (#4) (read rows: 2528312)
+└── Probe
+    └── Scan: default.imdb.title (#5) (read rows: 2528312)
+<<<<

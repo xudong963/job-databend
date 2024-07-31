@@ -1,0 +1,31 @@
+>>>> explain join SELECT MIN(t.title) AS movie_title
+FROM company_name AS cn,
+     keyword AS k,
+     movie_companies AS mc,
+     movie_keyword AS mk,
+     title AS t
+WHERE cn.country_code ='[us]'
+  AND k.keyword ='character-name-in-title'
+  AND cn.id = mc.company_id
+  AND mc.movie_id = t.id
+  AND t.id = mk.movie_id
+  AND mk.keyword_id = k.id
+  AND mc.movie_id = mk.movie_id;
+HashJoin: INNER
+├── Build
+│   └── HashJoin: INNER
+│       ├── Build
+│       │   └── HashJoin: INNER
+│       │       ├── Build
+│       │       │   └── HashJoin: INNER
+│       │       │       ├── Build
+│       │       │       │   └── Scan: default.imdb.keyword (#1) (read rows: 134170)
+│       │       │       └── Probe
+│       │       │           └── Scan: default.imdb.movie_keyword (#3) (read rows: 4523930)
+│       │       └── Probe
+│       │           └── Scan: default.imdb.movie_companies (#2) (read rows: 2609129)
+│       └── Probe
+│           └── Scan: default.imdb.company_name (#0) (read rows: 234997)
+└── Probe
+    └── Scan: default.imdb.title (#4) (read rows: 2528312)
+<<<<

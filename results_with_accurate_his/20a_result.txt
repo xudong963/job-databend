@@ -1,0 +1,76 @@
+>>>> explain join SELECT MIN(t.title) AS complete_downey_ironman_movie
+FROM complete_cast AS cc,
+     comp_cast_type AS cct1,
+     comp_cast_type AS cct2,
+     char_name AS chn,
+     cast_info AS ci,
+     keyword AS k,
+     kind_type AS kt,
+     movie_keyword AS mk,
+     name AS n,
+     title AS t
+WHERE cct1.kind = 'cast'
+  AND cct2.kind LIKE '%complete%'
+  AND chn.name NOT LIKE '%Sherlock%'
+  AND (chn.name LIKE '%Tony%Stark%'
+       OR chn.name LIKE '%Iron%Man%')
+  AND k.keyword IN ('superhero',
+                    'sequel',
+                    'second-part',
+                    'marvel-comics',
+                    'based-on-comic',
+                    'tv-special',
+                    'fight',
+                    'violence')
+  AND kt.kind = 'movie'
+  AND t.production_year > 1950
+  AND kt.id = t.kind_id
+  AND t.id = mk.movie_id
+  AND t.id = ci.movie_id
+  AND t.id = cc.movie_id
+  AND mk.movie_id = ci.movie_id
+  AND mk.movie_id = cc.movie_id
+  AND ci.movie_id = cc.movie_id
+  AND chn.id = ci.person_role_id
+  AND n.id = ci.person_id
+  AND k.id = mk.keyword_id
+  AND cct1.id = cc.subject_id
+  AND cct2.id = cc.status_id;
+HashJoin: INNER
+├── Build
+│   └── HashJoin: INNER
+│       ├── Build
+│       │   └── HashJoin: INNER
+│       │       ├── Build
+│       │       │   └── Scan: default.imdb.kind_type (#6) (read rows: 7)
+│       │       └── Probe
+│       │           └── HashJoin: INNER
+│       │               ├── Build
+│       │               │   └── HashJoin: INNER
+│       │               │       ├── Build
+│       │               │       │   └── HashJoin: INNER
+│       │               │       │       ├── Build
+│       │               │       │       │   └── HashJoin: INNER
+│       │               │       │       │       ├── Build
+│       │               │       │       │       │   └── HashJoin: INNER
+│       │               │       │       │       │       ├── Build
+│       │               │       │       │       │       │   └── Scan: default.imdb.comp_cast_type (#2) (read rows: 4)
+│       │               │       │       │       │       └── Probe
+│       │               │       │       │       │           └── HashJoin: INNER
+│       │               │       │       │       │               ├── Build
+│       │               │       │       │       │               │   └── Scan: default.imdb.comp_cast_type (#1) (read rows: 4)
+│       │               │       │       │       │               └── Probe
+│       │               │       │       │       │                   └── Scan: default.imdb.complete_cast (#0) (read rows: 135086)
+│       │               │       │       │       └── Probe
+│       │               │       │       │           └── Scan: default.imdb.cast_info (#4) (read rows: 36244344)
+│       │               │       │       └── Probe
+│       │               │       │           └── Scan: default.imdb.char_name (#3) (read rows: 3140339)
+│       │               │       └── Probe
+│       │               │           └── Scan: default.imdb.name (#8) (read rows: 4167491)
+│       │               └── Probe
+│       │                   └── Scan: default.imdb.title (#9) (read rows: 2528312)
+│       └── Probe
+│           └── Scan: default.imdb.movie_keyword (#7) (read rows: 4523930)
+└── Probe
+    └── Scan: default.imdb.keyword (#5) (read rows: 134170)
+<<<<

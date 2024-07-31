@@ -1,0 +1,1560 @@
+results/11c_result.txt and results_with_accurate_his/11c_result.txt have different content
+34c34,58
+< │   └── Scan: default.imdb.company_type (#1) (read rows: 4)
+---
+> │   └── HashJoin: INNER
+> │       ├── Build
+> │       │   └── Scan: default.imdb.company_type (#1) (read rows: 4)
+> │       └── Probe
+> │           └── HashJoin: INNER
+> │               ├── Build
+> │               │   └── HashJoin: INNER
+> │               │       ├── Build
+> │               │       │   └── HashJoin: INNER
+> │               │       │       ├── Build
+> │               │       │       │   └── HashJoin: INNER
+> │               │       │       │       ├── Build
+> │               │       │       │       │   └── HashJoin: INNER
+> │               │       │       │       │       ├── Build
+> │               │       │       │       │       │   └── Scan: default.imdb.keyword (#2) (read rows: 134170)
+> │               │       │       │       │       └── Probe
+> │               │       │       │       │           └── Scan: default.imdb.movie_keyword (#5) (read rows: 4523930)
+> │               │       │       │       └── Probe
+> │               │       │       │           └── Scan: default.imdb.movie_link (#6) (read rows: 29997)
+> │               │       │       └── Probe
+> │               │       │           └── Scan: default.imdb.link_type (#3) (read rows: 18)
+> │               │       └── Probe
+> │               │           └── Scan: default.imdb.movie_companies (#4) (read rows: 2609129)
+> │               └── Probe
+> │                   └── Scan: default.imdb.company_name (#0) (read rows: 234997)
+36,60c60
+<     └── HashJoin: INNER
+<         ├── Build
+<         │   └── HashJoin: INNER
+<         │       ├── Build
+<         │       │   └── HashJoin: INNER
+<         │       │       ├── Build
+<         │       │       │   └── HashJoin: INNER
+<         │       │       │       ├── Build
+<         │       │       │       │   └── HashJoin: INNER
+<         │       │       │       │       ├── Build
+<         │       │       │       │       │   └── HashJoin: INNER
+<         │       │       │       │       │       ├── Build
+<         │       │       │       │       │       │   └── Scan: default.imdb.keyword (#2) (read rows: 134170)
+<         │       │       │       │       │       └── Probe
+<         │       │       │       │       │           └── Scan: default.imdb.movie_keyword (#5) (read rows: 4523930)
+<         │       │       │       │       └── Probe
+<         │       │       │       │           └── Scan: default.imdb.movie_link (#6) (read rows: 29997)
+<         │       │       │       └── Probe
+<         │       │       │           └── Scan: default.imdb.link_type (#3) (read rows: 18)
+<         │       │       └── Probe
+<         │       │           └── Scan: default.imdb.title (#7) (read rows: 2528312)
+<         │       └── Probe
+<         │           └── Scan: default.imdb.movie_companies (#4) (read rows: 2609129)
+<         └── Probe
+<             └── Scan: default.imdb.company_name (#0) (read rows: 234997)
+---
+>     └── Scan: default.imdb.title (#7) (read rows: 2528312)
+=========================
+results/12b_result.txt and results_with_accurate_his/12b_result.txt have different content
+32c32,56
+< │   └── Scan: default.imdb.info_type (#3) (read rows: 113)
+---
+> │   └── HashJoin: INNER
+> │       ├── Build
+> │       │   └── Scan: default.imdb.company_type (#1) (read rows: 4)
+> │       └── Probe
+> │           └── HashJoin: INNER
+> │               ├── Build
+> │               │   └── Scan: default.imdb.info_type (#2) (read rows: 113)
+> │               └── Probe
+> │                   └── HashJoin: INNER
+> │                       ├── Build
+> │                       │   └── HashJoin: INNER
+> │                       │       ├── Build
+> │                       │       │   └── Scan: default.imdb.info_type (#3) (read rows: 113)
+> │                       │       └── Probe
+> │                       │           └── HashJoin: INNER
+> │                       │               ├── Build
+> │                       │               │   └── HashJoin: INNER
+> │                       │               │       ├── Build
+> │                       │               │       │   └── Scan: default.imdb.company_name (#0) (read rows: 234997)
+> │                       │               │       └── Probe
+> │                       │               │           └── Scan: default.imdb.movie_companies (#4) (read rows: 2609129)
+> │                       │               └── Probe
+> │                       │                   └── Scan: default.imdb.movie_info_idx (#6) (read rows: 1380035)
+> │                       └── Probe
+> │                           └── Scan: default.imdb.movie_info (#5) (read rows: 14835720)
+34,58c58
+<     └── HashJoin: INNER
+<         ├── Build
+<         │   └── HashJoin: INNER
+<         │       ├── Build
+<         │       │   └── Scan: default.imdb.company_type (#1) (read rows: 4)
+<         │       └── Probe
+<         │           └── HashJoin: INNER
+<         │               ├── Build
+<         │               │   └── Scan: default.imdb.info_type (#2) (read rows: 113)
+<         │               └── Probe
+<         │                   └── HashJoin: INNER
+<         │                       ├── Build
+<         │                       │   └── HashJoin: INNER
+<         │                       │       ├── Build
+<         │                       │       │   └── HashJoin: INNER
+<         │                       │       │       ├── Build
+<         │                       │       │       │   └── Scan: default.imdb.company_name (#0) (read rows: 234997)
+<         │                       │       │       └── Probe
+<         │                       │       │           └── Scan: default.imdb.movie_companies (#4) (read rows: 2609129)
+<         │                       │       └── Probe
+<         │                       │           └── Scan: default.imdb.title (#7) (read rows: 2528312)
+<         │                       └── Probe
+<         │                           └── Scan: default.imdb.movie_info (#5) (read rows: 14835720)
+<         └── Probe
+<             └── Scan: default.imdb.movie_info_idx (#6) (read rows: 1380035)
+---
+>     └── Scan: default.imdb.title (#7) (read rows: 2528312)
+=========================
+results/14a_result.txt and results_with_accurate_his/14a_result.txt have different content
+42c42,62
+< │   └── Scan: default.imdb.info_type (#1) (read rows: 113)
+---
+> │   └── HashJoin: INNER
+> │       ├── Build
+> │       │   └── Scan: default.imdb.kind_type (#3) (read rows: 7)
+> │       └── Probe
+> │           └── HashJoin: INNER
+> │               ├── Build
+> │               │   └── HashJoin: INNER
+> │               │       ├── Build
+> │               │       │   └── HashJoin: INNER
+> │               │       │       ├── Build
+> │               │       │       │   └── Scan: default.imdb.info_type (#0) (read rows: 113)
+> │               │       │       └── Probe
+> │               │       │           └── Scan: default.imdb.movie_info (#4) (read rows: 14835720)
+> │               │       └── Probe
+> │               │           └── HashJoin: INNER
+> │               │               ├── Build
+> │               │               │   └── Scan: default.imdb.info_type (#1) (read rows: 113)
+> │               │               └── Probe
+> │               │                   └── Scan: default.imdb.movie_info_idx (#5) (read rows: 1380035)
+> │               └── Probe
+> │                   └── Scan: default.imdb.title (#7) (read rows: 2528312)
+46,66c66
+<         │   └── HashJoin: INNER
+<         │       ├── Build
+<         │       │   └── Scan: default.imdb.keyword (#2) (read rows: 134170)
+<         │       └── Probe
+<         │           └── HashJoin: INNER
+<         │               ├── Build
+<         │               │   └── HashJoin: INNER
+<         │               │       ├── Build
+<         │               │       │   └── Scan: default.imdb.kind_type (#3) (read rows: 7)
+<         │               │       └── Probe
+<         │               │           └── HashJoin: INNER
+<         │               │               ├── Build
+<         │               │               │   └── Scan: default.imdb.title (#7) (read rows: 2528312)
+<         │               │               └── Probe
+<         │               │                   └── HashJoin: INNER
+<         │               │                       ├── Build
+<         │               │                       │   └── Scan: default.imdb.info_type (#0) (read rows: 113)
+<         │               │                       └── Probe
+<         │               │                           └── Scan: default.imdb.movie_info (#4) (read rows: 14835720)
+<         │               └── Probe
+<         │                   └── Scan: default.imdb.movie_keyword (#6) (read rows: 4523930)
+---
+>         │   └── Scan: default.imdb.keyword (#2) (read rows: 134170)
+68c68
+<             └── Scan: default.imdb.movie_info_idx (#5) (read rows: 1380035)
+---
+>             └── Scan: default.imdb.movie_keyword (#6) (read rows: 4523930)
+=========================
+results/14b_result.txt and results_with_accurate_his/14b_result.txt have different content
+43c43
+< │   └── Scan: default.imdb.info_type (#1) (read rows: 113)
+---
+> │   └── Scan: default.imdb.kind_type (#3) (read rows: 7)
+49c49
+<         │       │   └── Scan: default.imdb.kind_type (#3) (read rows: 7)
+---
+>         │       │   └── Scan: default.imdb.info_type (#0) (read rows: 113)
+53c53,65
+<         │               │   └── Scan: default.imdb.info_type (#0) (read rows: 113)
+---
+>         │               │   └── HashJoin: INNER
+>         │               │       ├── Build
+>         │               │       │   └── Scan: default.imdb.info_type (#1) (read rows: 113)
+>         │               │       └── Probe
+>         │               │           └── HashJoin: INNER
+>         │               │               ├── Build
+>         │               │               │   └── HashJoin: INNER
+>         │               │               │       ├── Build
+>         │               │               │       │   └── Scan: default.imdb.keyword (#2) (read rows: 134170)
+>         │               │               │       └── Probe
+>         │               │               │           └── Scan: default.imdb.movie_keyword (#6) (read rows: 4523930)
+>         │               │               └── Probe
+>         │               │                   └── Scan: default.imdb.movie_info_idx (#5) (read rows: 1380035)
+55,67c67
+<         │                   └── HashJoin: INNER
+<         │                       ├── Build
+<         │                       │   └── HashJoin: INNER
+<         │                       │       ├── Build
+<         │                       │       │   └── HashJoin: INNER
+<         │                       │       │       ├── Build
+<         │                       │       │       │   └── Scan: default.imdb.keyword (#2) (read rows: 134170)
+<         │                       │       │       └── Probe
+<         │                       │       │           └── Scan: default.imdb.movie_keyword (#6) (read rows: 4523930)
+<         │                       │       └── Probe
+<         │                       │           └── Scan: default.imdb.title (#7) (read rows: 2528312)
+<         │                       └── Probe
+<         │                           └── Scan: default.imdb.movie_info (#4) (read rows: 14835720)
+---
+>         │                   └── Scan: default.imdb.movie_info (#4) (read rows: 14835720)
+69c69
+<             └── Scan: default.imdb.movie_info_idx (#5) (read rows: 1380035)
+---
+>             └── Scan: default.imdb.title (#7) (read rows: 2528312)
+=========================
+results/14c_result.txt and results_with_accurate_his/14c_result.txt have different content
+44,64c44
+< │   └── HashJoin: INNER
+< │       ├── Build
+< │       │   └── Scan: default.imdb.info_type (#1) (read rows: 113)
+< │       └── Probe
+< │           └── HashJoin: INNER
+< │               ├── Build
+< │               │   └── HashJoin: INNER
+< │               │       ├── Build
+< │               │       │   └── Scan: default.imdb.kind_type (#3) (read rows: 7)
+< │               │       └── Probe
+< │               │           └── HashJoin: INNER
+< │               │               ├── Build
+< │               │               │   └── HashJoin: INNER
+< │               │               │       ├── Build
+< │               │               │       │   └── Scan: default.imdb.info_type (#0) (read rows: 113)
+< │               │               │       └── Probe
+< │               │               │           └── Scan: default.imdb.movie_info (#4) (read rows: 14835720)
+< │               │               └── Probe
+< │               │                   └── Scan: default.imdb.title (#7) (read rows: 2528312)
+< │               └── Probe
+< │                   └── Scan: default.imdb.movie_info_idx (#5) (read rows: 1380035)
+---
+> │   └── Scan: default.imdb.keyword (#2) (read rows: 134170)
+68c48,68
+<         │   └── Scan: default.imdb.keyword (#2) (read rows: 134170)
+---
+>         │   └── HashJoin: INNER
+>         │       ├── Build
+>         │       │   └── Scan: default.imdb.kind_type (#3) (read rows: 7)
+>         │       └── Probe
+>         │           └── HashJoin: INNER
+>         │               ├── Build
+>         │               │   └── HashJoin: INNER
+>         │               │       ├── Build
+>         │               │       │   └── HashJoin: INNER
+>         │               │       │       ├── Build
+>         │               │       │       │   └── Scan: default.imdb.info_type (#0) (read rows: 113)
+>         │               │       │       └── Probe
+>         │               │       │           └── Scan: default.imdb.movie_info (#4) (read rows: 14835720)
+>         │               │       └── Probe
+>         │               │           └── HashJoin: INNER
+>         │               │               ├── Build
+>         │               │               │   └── Scan: default.imdb.info_type (#1) (read rows: 113)
+>         │               │               └── Probe
+>         │               │                   └── Scan: default.imdb.movie_info_idx (#5) (read rows: 1380035)
+>         │               └── Probe
+>         │                   └── Scan: default.imdb.title (#7) (read rows: 2528312)
+=========================
+results/16c_result.txt and results_with_accurate_his/16c_result.txt have different content
+43c43
+< │       │       │       │       │           └── Scan: default.imdb.title (#7) (read rows: 2528312)
+---
+> │       │       │       │       │           └── Scan: default.imdb.movie_companies (#4) (read rows: 2609129)
+45c45
+< │       │       │       │           └── Scan: default.imdb.movie_companies (#4) (read rows: 2609129)
+---
+> │       │       │       │           └── Scan: default.imdb.company_name (#2) (read rows: 234997)
+47c47
+< │       │       │           └── Scan: default.imdb.company_name (#2) (read rows: 234997)
+---
+> │       │       │           └── Scan: default.imdb.title (#7) (read rows: 2528312)
+=========================
+results/17b_result.txt and results_with_accurate_his/17b_result.txt have different content
+37c37
+< │       │       │       │           └── Scan: default.imdb.title (#6) (read rows: 2528312)
+---
+> │       │       │       │           └── Scan: default.imdb.cast_info (#0) (read rows: 36244344)
+39c39
+< │       │       │           └── Scan: default.imdb.cast_info (#0) (read rows: 36244344)
+---
+> │       │       │           └── Scan: default.imdb.name (#5) (read rows: 4167491)
+41c41
+< │       │           └── Scan: default.imdb.name (#5) (read rows: 4167491)
+---
+> │       │           └── Scan: default.imdb.title (#6) (read rows: 2528312)
+=========================
+results/17c_result.txt and results_with_accurate_his/17c_result.txt have different content
+37c37
+< │       │       │       │           └── Scan: default.imdb.title (#6) (read rows: 2528312)
+---
+> │       │       │       │           └── Scan: default.imdb.cast_info (#0) (read rows: 36244344)
+39c39
+< │       │       │           └── Scan: default.imdb.cast_info (#0) (read rows: 36244344)
+---
+> │       │       │           └── Scan: default.imdb.name (#5) (read rows: 4167491)
+41c41
+< │       │           └── Scan: default.imdb.name (#5) (read rows: 4167491)
+---
+> │       │           └── Scan: default.imdb.title (#6) (read rows: 2528312)
+=========================
+results/19d_result.txt and results_with_accurate_his/19d_result.txt have different content
+49c49,61
+< │       │       │               │       │   └── Scan: default.imdb.info_type (#4) (read rows: 113)
+---
+> │       │       │               │       │   └── HashJoin: INNER
+> │       │       │               │       │       ├── Build
+> │       │       │               │       │       │   └── Scan: default.imdb.info_type (#4) (read rows: 113)
+> │       │       │               │       │       └── Probe
+> │       │       │               │       │           └── HashJoin: INNER
+> │       │       │               │       │               ├── Build
+> │       │       │               │       │               │   └── HashJoin: INNER
+> │       │       │               │       │               │       ├── Build
+> │       │       │               │       │               │       │   └── Scan: default.imdb.company_name (#3) (read rows: 234997)
+> │       │       │               │       │               │       └── Probe
+> │       │       │               │       │               │           └── Scan: default.imdb.movie_companies (#5) (read rows: 2609129)
+> │       │       │               │       │               └── Probe
+> │       │       │               │       │                   └── Scan: default.imdb.movie_info (#6) (read rows: 14835720)
+51,63c63
+< │       │       │               │           └── HashJoin: INNER
+< │       │       │               │               ├── Build
+< │       │       │               │               │   └── HashJoin: INNER
+< │       │       │               │               │       ├── Build
+< │       │       │               │               │       │   └── HashJoin: INNER
+< │       │       │               │               │       │       ├── Build
+< │       │       │               │               │       │       │   └── Scan: default.imdb.company_name (#3) (read rows: 234997)
+< │       │       │               │               │       │       └── Probe
+< │       │       │               │               │       │           └── Scan: default.imdb.movie_companies (#5) (read rows: 2609129)
+< │       │       │               │               │       └── Probe
+< │       │       │               │               │           └── Scan: default.imdb.title (#9) (read rows: 2528312)
+< │       │       │               │               └── Probe
+< │       │       │               │                   └── Scan: default.imdb.movie_info (#6) (read rows: 14835720)
+---
+> │       │       │               │           └── Scan: default.imdb.title (#9) (read rows: 2528312)
+=========================
+results/1b_result.txt and results_with_accurate_his/1b_result.txt have different content
+26c26,30
+<         │       │   └── Scan: default.imdb.title (#4) (read rows: 2528312)
+---
+>         │       │   └── HashJoin: INNER
+>         │       │       ├── Build
+>         │       │       │   └── Scan: default.imdb.info_type (#1) (read rows: 113)
+>         │       │       └── Probe
+>         │       │           └── Scan: default.imdb.movie_info_idx (#3) (read rows: 1380035)
+28,32c32
+<         │           └── HashJoin: INNER
+<         │               ├── Build
+<         │               │   └── Scan: default.imdb.info_type (#1) (read rows: 113)
+<         │               └── Probe
+<         │                   └── Scan: default.imdb.movie_info_idx (#3) (read rows: 1380035)
+---
+>         │           └── Scan: default.imdb.title (#4) (read rows: 2528312)
+=========================
+results/20c_result.txt and results_with_accurate_his/20c_result.txt have different content
+46c46,74
+< │       │   └── Scan: default.imdb.kind_type (#6) (read rows: 7)
+---
+> │       │   └── HashJoin: INNER
+> │       │       ├── Build
+> │       │       │   └── Scan: default.imdb.kind_type (#6) (read rows: 7)
+> │       │       └── Probe
+> │       │           └── HashJoin: INNER
+> │       │               ├── Build
+> │       │               │   └── HashJoin: INNER
+> │       │               │       ├── Build
+> │       │               │       │   └── HashJoin: INNER
+> │       │               │       │       ├── Build
+> │       │               │       │       │   └── HashJoin: INNER
+> │       │               │       │       │       ├── Build
+> │       │               │       │       │       │   └── HashJoin: INNER
+> │       │               │       │       │       │       ├── Build
+> │       │               │       │       │       │       │   └── Scan: default.imdb.comp_cast_type (#2) (read rows: 4)
+> │       │               │       │       │       │       └── Probe
+> │       │               │       │       │       │           └── HashJoin: INNER
+> │       │               │       │       │       │               ├── Build
+> │       │               │       │       │       │               │   └── Scan: default.imdb.comp_cast_type (#1) (read rows: 4)
+> │       │               │       │       │       │               └── Probe
+> │       │               │       │       │       │                   └── Scan: default.imdb.complete_cast (#0) (read rows: 135086)
+> │       │               │       │       │       └── Probe
+> │       │               │       │       │           └── Scan: default.imdb.title (#9) (read rows: 2528312)
+> │       │               │       │       └── Probe
+> │       │               │       │           └── Scan: default.imdb.cast_info (#4) (read rows: 36244344)
+> │       │               │       └── Probe
+> │       │               │           └── Scan: default.imdb.char_name (#3) (read rows: 3140339)
+> │       │               └── Probe
+> │       │                   └── Scan: default.imdb.name (#8) (read rows: 4167491)
+48,76c76
+< │           └── HashJoin: INNER
+< │               ├── Build
+< │               │   └── HashJoin: INNER
+< │               │       ├── Build
+< │               │       │   └── HashJoin: INNER
+< │               │       │       ├── Build
+< │               │       │       │   └── HashJoin: INNER
+< │               │       │       │       ├── Build
+< │               │       │       │       │   └── HashJoin: INNER
+< │               │       │       │       │       ├── Build
+< │               │       │       │       │       │   └── HashJoin: INNER
+< │               │       │       │       │       │       ├── Build
+< │               │       │       │       │       │       │   └── Scan: default.imdb.comp_cast_type (#2) (read rows: 4)
+< │               │       │       │       │       │       └── Probe
+< │               │       │       │       │       │           └── HashJoin: INNER
+< │               │       │       │       │       │               ├── Build
+< │               │       │       │       │       │               │   └── Scan: default.imdb.comp_cast_type (#1) (read rows: 4)
+< │               │       │       │       │       │               └── Probe
+< │               │       │       │       │       │                   └── Scan: default.imdb.complete_cast (#0) (read rows: 135086)
+< │               │       │       │       │       └── Probe
+< │               │       │       │       │           └── Scan: default.imdb.title (#9) (read rows: 2528312)
+< │               │       │       │       └── Probe
+< │               │       │       │           └── Scan: default.imdb.movie_keyword (#7) (read rows: 4523930)
+< │               │       │       └── Probe
+< │               │       │           └── Scan: default.imdb.keyword (#5) (read rows: 134170)
+< │               │       └── Probe
+< │               │           └── Scan: default.imdb.cast_info (#4) (read rows: 36244344)
+< │               └── Probe
+< │                   └── Scan: default.imdb.name (#8) (read rows: 4167491)
+---
+> │           └── Scan: default.imdb.movie_keyword (#7) (read rows: 4523930)
+78c78
+<     └── Scan: default.imdb.char_name (#3) (read rows: 3140339)
+---
+>     └── Scan: default.imdb.keyword (#5) (read rows: 134170)
+=========================
+results/22a_result.txt and results_with_accurate_his/22a_result.txt have different content
+50,82c50
+< │   └── HashJoin: INNER
+< │       ├── Build
+< │       │   └── HashJoin: INNER
+< │       │       ├── Build
+< │       │       │   └── HashJoin: INNER
+< │       │       │       ├── Build
+< │       │       │       │   └── Scan: default.imdb.company_type (#1) (read rows: 4)
+< │       │       │       └── Probe
+< │       │       │           └── HashJoin: INNER
+< │       │       │               ├── Build
+< │       │       │               │   └── Scan: default.imdb.kind_type (#5) (read rows: 7)
+< │       │       │               └── Probe
+< │       │       │                   └── HashJoin: INNER
+< │       │       │                       ├── Build
+< │       │       │                       │   └── HashJoin: INNER
+< │       │       │                       │       ├── Build
+< │       │       │                       │       │   └── HashJoin: INNER
+< │       │       │                       │       │       ├── Build
+< │       │       │                       │       │       │   └── Scan: default.imdb.info_type (#2) (read rows: 113)
+< │       │       │                       │       │       └── Probe
+< │       │       │                       │       │           └── Scan: default.imdb.movie_info (#7) (read rows: 14835720)
+< │       │       │                       │       └── Probe
+< │       │       │                       │           └── Scan: default.imdb.movie_companies (#6) (read rows: 2609129)
+< │       │       │                       └── Probe
+< │       │       │                           └── Scan: default.imdb.title (#10) (read rows: 2528312)
+< │       │       └── Probe
+< │       │           └── Scan: default.imdb.company_name (#0) (read rows: 234997)
+< │       └── Probe
+< │           └── HashJoin: INNER
+< │               ├── Build
+< │               │   └── Scan: default.imdb.keyword (#4) (read rows: 134170)
+< │               └── Probe
+< │                   └── Scan: default.imdb.movie_keyword (#9) (read rows: 4523930)
+---
+> │   └── Scan: default.imdb.keyword (#4) (read rows: 134170)
+86c54,86
+<         │   └── Scan: default.imdb.info_type (#3) (read rows: 113)
+---
+>         │   └── HashJoin: INNER
+>         │       ├── Build
+>         │       │   └── HashJoin: INNER
+>         │       │       ├── Build
+>         │       │       │   └── Scan: default.imdb.company_type (#1) (read rows: 4)
+>         │       │       └── Probe
+>         │       │           └── HashJoin: INNER
+>         │       │               ├── Build
+>         │       │               │   └── Scan: default.imdb.kind_type (#5) (read rows: 7)
+>         │       │               └── Probe
+>         │       │                   └── HashJoin: INNER
+>         │       │                       ├── Build
+>         │       │                       │   └── HashJoin: INNER
+>         │       │                       │       ├── Build
+>         │       │                       │       │   └── HashJoin: INNER
+>         │       │                       │       │       ├── Build
+>         │       │                       │       │       │   └── HashJoin: INNER
+>         │       │                       │       │       │       ├── Build
+>         │       │                       │       │       │       │   └── Scan: default.imdb.info_type (#2) (read rows: 113)
+>         │       │                       │       │       │       └── Probe
+>         │       │                       │       │       │           └── Scan: default.imdb.movie_info (#7) (read rows: 14835720)
+>         │       │                       │       │       └── Probe
+>         │       │                       │       │           └── HashJoin: INNER
+>         │       │                       │       │               ├── Build
+>         │       │                       │       │               │   └── Scan: default.imdb.info_type (#3) (read rows: 113)
+>         │       │                       │       │               └── Probe
+>         │       │                       │       │                   └── Scan: default.imdb.movie_info_idx (#8) (read rows: 1380035)
+>         │       │                       │       └── Probe
+>         │       │                       │           └── Scan: default.imdb.movie_companies (#6) (read rows: 2609129)
+>         │       │                       └── Probe
+>         │       │                           └── Scan: default.imdb.title (#10) (read rows: 2528312)
+>         │       └── Probe
+>         │           └── Scan: default.imdb.company_name (#0) (read rows: 234997)
+88c88
+<             └── Scan: default.imdb.movie_info_idx (#8) (read rows: 1380035)
+---
+>             └── Scan: default.imdb.movie_keyword (#9) (read rows: 4523930)
+=========================
+results/22b_result.txt and results_with_accurate_his/22b_result.txt have different content
+50,82c50
+< │   └── HashJoin: INNER
+< │       ├── Build
+< │       │   └── HashJoin: INNER
+< │       │       ├── Build
+< │       │       │   └── HashJoin: INNER
+< │       │       │       ├── Build
+< │       │       │       │   └── Scan: default.imdb.company_type (#1) (read rows: 4)
+< │       │       │       └── Probe
+< │       │       │           └── HashJoin: INNER
+< │       │       │               ├── Build
+< │       │       │               │   └── Scan: default.imdb.kind_type (#5) (read rows: 7)
+< │       │       │               └── Probe
+< │       │       │                   └── HashJoin: INNER
+< │       │       │                       ├── Build
+< │       │       │                       │   └── HashJoin: INNER
+< │       │       │                       │       ├── Build
+< │       │       │                       │       │   └── HashJoin: INNER
+< │       │       │                       │       │       ├── Build
+< │       │       │                       │       │       │   └── Scan: default.imdb.info_type (#2) (read rows: 113)
+< │       │       │                       │       │       └── Probe
+< │       │       │                       │       │           └── Scan: default.imdb.movie_info (#7) (read rows: 14835720)
+< │       │       │                       │       └── Probe
+< │       │       │                       │           └── Scan: default.imdb.movie_companies (#6) (read rows: 2609129)
+< │       │       │                       └── Probe
+< │       │       │                           └── Scan: default.imdb.title (#10) (read rows: 2528312)
+< │       │       └── Probe
+< │       │           └── Scan: default.imdb.company_name (#0) (read rows: 234997)
+< │       └── Probe
+< │           └── HashJoin: INNER
+< │               ├── Build
+< │               │   └── Scan: default.imdb.keyword (#4) (read rows: 134170)
+< │               └── Probe
+< │                   └── Scan: default.imdb.movie_keyword (#9) (read rows: 4523930)
+---
+> │   └── Scan: default.imdb.keyword (#4) (read rows: 134170)
+86c54,86
+<         │   └── Scan: default.imdb.info_type (#3) (read rows: 113)
+---
+>         │   └── HashJoin: INNER
+>         │       ├── Build
+>         │       │   └── HashJoin: INNER
+>         │       │       ├── Build
+>         │       │       │   └── Scan: default.imdb.company_type (#1) (read rows: 4)
+>         │       │       └── Probe
+>         │       │           └── HashJoin: INNER
+>         │       │               ├── Build
+>         │       │               │   └── Scan: default.imdb.kind_type (#5) (read rows: 7)
+>         │       │               └── Probe
+>         │       │                   └── HashJoin: INNER
+>         │       │                       ├── Build
+>         │       │                       │   └── HashJoin: INNER
+>         │       │                       │       ├── Build
+>         │       │                       │       │   └── HashJoin: INNER
+>         │       │                       │       │       ├── Build
+>         │       │                       │       │       │   └── HashJoin: INNER
+>         │       │                       │       │       │       ├── Build
+>         │       │                       │       │       │       │   └── Scan: default.imdb.info_type (#2) (read rows: 113)
+>         │       │                       │       │       │       └── Probe
+>         │       │                       │       │       │           └── Scan: default.imdb.movie_info (#7) (read rows: 14835720)
+>         │       │                       │       │       └── Probe
+>         │       │                       │       │           └── HashJoin: INNER
+>         │       │                       │       │               ├── Build
+>         │       │                       │       │               │   └── Scan: default.imdb.info_type (#3) (read rows: 113)
+>         │       │                       │       │               └── Probe
+>         │       │                       │       │                   └── Scan: default.imdb.movie_info_idx (#8) (read rows: 1380035)
+>         │       │                       │       └── Probe
+>         │       │                       │           └── Scan: default.imdb.movie_companies (#6) (read rows: 2609129)
+>         │       │                       └── Probe
+>         │       │                           └── Scan: default.imdb.title (#10) (read rows: 2528312)
+>         │       └── Probe
+>         │           └── Scan: default.imdb.company_name (#0) (read rows: 234997)
+88c88
+<             └── Scan: default.imdb.movie_info_idx (#8) (read rows: 1380035)
+---
+>             └── Scan: default.imdb.movie_keyword (#9) (read rows: 4523930)
+=========================
+results/22c_result.txt and results_with_accurate_his/22c_result.txt have different content
+56,88c56
+< │   └── HashJoin: INNER
+< │       ├── Build
+< │       │   └── HashJoin: INNER
+< │       │       ├── Build
+< │       │       │   └── HashJoin: INNER
+< │       │       │       ├── Build
+< │       │       │       │   └── Scan: default.imdb.company_type (#1) (read rows: 4)
+< │       │       │       └── Probe
+< │       │       │           └── HashJoin: INNER
+< │       │       │               ├── Build
+< │       │       │               │   └── Scan: default.imdb.kind_type (#5) (read rows: 7)
+< │       │       │               └── Probe
+< │       │       │                   └── HashJoin: INNER
+< │       │       │                       ├── Build
+< │       │       │                       │   └── HashJoin: INNER
+< │       │       │                       │       ├── Build
+< │       │       │                       │       │   └── HashJoin: INNER
+< │       │       │                       │       │       ├── Build
+< │       │       │                       │       │       │   └── Scan: default.imdb.info_type (#2) (read rows: 113)
+< │       │       │                       │       │       └── Probe
+< │       │       │                       │       │           └── Scan: default.imdb.movie_info (#7) (read rows: 14835720)
+< │       │       │                       │       └── Probe
+< │       │       │                       │           └── Scan: default.imdb.movie_companies (#6) (read rows: 2609129)
+< │       │       │                       └── Probe
+< │       │       │                           └── Scan: default.imdb.title (#10) (read rows: 2528312)
+< │       │       └── Probe
+< │       │           └── Scan: default.imdb.company_name (#0) (read rows: 234997)
+< │       └── Probe
+< │           └── HashJoin: INNER
+< │               ├── Build
+< │               │   └── Scan: default.imdb.keyword (#4) (read rows: 134170)
+< │               └── Probe
+< │                   └── Scan: default.imdb.movie_keyword (#9) (read rows: 4523930)
+---
+> │   └── Scan: default.imdb.keyword (#4) (read rows: 134170)
+92c60,92
+<         │   └── Scan: default.imdb.info_type (#3) (read rows: 113)
+---
+>         │   └── HashJoin: INNER
+>         │       ├── Build
+>         │       │   └── HashJoin: INNER
+>         │       │       ├── Build
+>         │       │       │   └── Scan: default.imdb.company_type (#1) (read rows: 4)
+>         │       │       └── Probe
+>         │       │           └── HashJoin: INNER
+>         │       │               ├── Build
+>         │       │               │   └── Scan: default.imdb.kind_type (#5) (read rows: 7)
+>         │       │               └── Probe
+>         │       │                   └── HashJoin: INNER
+>         │       │                       ├── Build
+>         │       │                       │   └── HashJoin: INNER
+>         │       │                       │       ├── Build
+>         │       │                       │       │   └── HashJoin: INNER
+>         │       │                       │       │       ├── Build
+>         │       │                       │       │       │   └── HashJoin: INNER
+>         │       │                       │       │       │       ├── Build
+>         │       │                       │       │       │       │   └── Scan: default.imdb.info_type (#2) (read rows: 113)
+>         │       │                       │       │       │       └── Probe
+>         │       │                       │       │       │           └── Scan: default.imdb.movie_info (#7) (read rows: 14835720)
+>         │       │                       │       │       └── Probe
+>         │       │                       │       │           └── HashJoin: INNER
+>         │       │                       │       │               ├── Build
+>         │       │                       │       │               │   └── Scan: default.imdb.info_type (#3) (read rows: 113)
+>         │       │                       │       │               └── Probe
+>         │       │                       │       │                   └── Scan: default.imdb.movie_info_idx (#8) (read rows: 1380035)
+>         │       │                       │       └── Probe
+>         │       │                       │           └── Scan: default.imdb.movie_companies (#6) (read rows: 2609129)
+>         │       │                       └── Probe
+>         │       │                           └── Scan: default.imdb.title (#10) (read rows: 2528312)
+>         │       └── Probe
+>         │           └── Scan: default.imdb.company_name (#0) (read rows: 234997)
+94c94
+<             └── Scan: default.imdb.movie_info_idx (#8) (read rows: 1380035)
+---
+>             └── Scan: default.imdb.movie_keyword (#9) (read rows: 4523930)
+=========================
+results/22d_result.txt and results_with_accurate_his/22d_result.txt have different content
+60c60,84
+< │               │   └── Scan: default.imdb.company_name (#0) (read rows: 234997)
+---
+> │               │   └── HashJoin: INNER
+> │               │       ├── Build
+> │               │       │   └── HashJoin: INNER
+> │               │       │       ├── Build
+> │               │       │       │   └── Scan: default.imdb.kind_type (#5) (read rows: 7)
+> │               │       │       └── Probe
+> │               │       │           └── HashJoin: INNER
+> │               │       │               ├── Build
+> │               │       │               │   └── HashJoin: INNER
+> │               │       │               │       ├── Build
+> │               │       │               │       │   └── HashJoin: INNER
+> │               │       │               │       │       ├── Build
+> │               │       │               │       │       │   └── Scan: default.imdb.info_type (#2) (read rows: 113)
+> │               │       │               │       │       └── Probe
+> │               │       │               │       │           └── Scan: default.imdb.movie_info (#7) (read rows: 14835720)
+> │               │       │               │       └── Probe
+> │               │       │               │           └── HashJoin: INNER
+> │               │       │               │               ├── Build
+> │               │       │               │               │   └── Scan: default.imdb.info_type (#3) (read rows: 113)
+> │               │       │               │               └── Probe
+> │               │       │               │                   └── Scan: default.imdb.movie_info_idx (#8) (read rows: 1380035)
+> │               │       │               └── Probe
+> │               │       │                   └── Scan: default.imdb.title (#10) (read rows: 2528312)
+> │               │       └── Probe
+> │               │           └── Scan: default.imdb.movie_companies (#6) (read rows: 2609129)
+62,86c86
+< │                   └── HashJoin: INNER
+< │                       ├── Build
+< │                       │   └── HashJoin: INNER
+< │                       │       ├── Build
+< │                       │       │   └── Scan: default.imdb.kind_type (#5) (read rows: 7)
+< │                       │       └── Probe
+< │                       │           └── HashJoin: INNER
+< │                       │               ├── Build
+< │                       │               │   └── HashJoin: INNER
+< │                       │               │       ├── Build
+< │                       │               │       │   └── Scan: default.imdb.info_type (#3) (read rows: 113)
+< │                       │               │       └── Probe
+< │                       │               │           └── HashJoin: INNER
+< │                       │               │               ├── Build
+< │                       │               │               │   └── HashJoin: INNER
+< │                       │               │               │       ├── Build
+< │                       │               │               │       │   └── Scan: default.imdb.info_type (#2) (read rows: 113)
+< │                       │               │               │       └── Probe
+< │                       │               │               │           └── Scan: default.imdb.movie_info (#7) (read rows: 14835720)
+< │                       │               │               └── Probe
+< │                       │               │                   └── Scan: default.imdb.movie_info_idx (#8) (read rows: 1380035)
+< │                       │               └── Probe
+< │                       │                   └── Scan: default.imdb.title (#10) (read rows: 2528312)
+< │                       └── Probe
+< │                           └── Scan: default.imdb.movie_companies (#6) (read rows: 2609129)
+---
+> │                   └── Scan: default.imdb.company_name (#0) (read rows: 234997)
+=========================
+results/23a_result.txt and results_with_accurate_his/23a_result.txt have different content
+45c45,69
+< │       │       │   └── Scan: default.imdb.kind_type (#6) (read rows: 7)
+---
+> │       │       │   └── HashJoin: INNER
+> │       │       │       ├── Build
+> │       │       │       │   └── Scan: default.imdb.info_type (#4) (read rows: 113)
+> │       │       │       └── Probe
+> │       │       │           └── HashJoin: INNER
+> │       │       │               ├── Build
+> │       │       │               │   └── Scan: default.imdb.company_type (#3) (read rows: 4)
+> │       │       │               └── Probe
+> │       │       │                   └── HashJoin: INNER
+> │       │       │                       ├── Build
+> │       │       │                       │   └── Scan: default.imdb.kind_type (#6) (read rows: 7)
+> │       │       │                       └── Probe
+> │       │       │                           └── HashJoin: INNER
+> │       │       │                               ├── Build
+> │       │       │                               │   └── HashJoin: INNER
+> │       │       │                               │       ├── Build
+> │       │       │                               │       │   └── HashJoin: INNER
+> │       │       │                               │       │       ├── Build
+> │       │       │                               │       │       │   └── Scan: default.imdb.company_name (#2) (read rows: 234997)
+> │       │       │                               │       │       └── Probe
+> │       │       │                               │       │           └── Scan: default.imdb.movie_companies (#7) (read rows: 2609129)
+> │       │       │                               │       └── Probe
+> │       │       │                               │           └── Scan: default.imdb.movie_info (#8) (read rows: 14835720)
+> │       │       │                               └── Probe
+> │       │       │                                   └── Scan: default.imdb.title (#10) (read rows: 2528312)
+49c73
+< │       │               │   └── Scan: default.imdb.info_type (#4) (read rows: 113)
+---
+> │       │               │   └── Scan: default.imdb.comp_cast_type (#1) (read rows: 4)
+51,75c75
+< │       │                   └── HashJoin: INNER
+< │       │                       ├── Build
+< │       │                       │   └── HashJoin: INNER
+< │       │                       │       ├── Build
+< │       │                       │       │   └── HashJoin: INNER
+< │       │                       │       │       ├── Build
+< │       │                       │       │       │   └── Scan: default.imdb.company_type (#3) (read rows: 4)
+< │       │                       │       │       └── Probe
+< │       │                       │       │           └── HashJoin: INNER
+< │       │                       │       │               ├── Build
+< │       │                       │       │               │   └── HashJoin: INNER
+< │       │                       │       │               │       ├── Build
+< │       │                       │       │               │       │   └── Scan: default.imdb.company_name (#2) (read rows: 234997)
+< │       │                       │       │               │       └── Probe
+< │       │                       │       │               │           └── Scan: default.imdb.movie_companies (#7) (read rows: 2609129)
+< │       │                       │       │               └── Probe
+< │       │                       │       │                   └── HashJoin: INNER
+< │       │                       │       │                       ├── Build
+< │       │                       │       │                       │   └── Scan: default.imdb.comp_cast_type (#1) (read rows: 4)
+< │       │                       │       │                       └── Probe
+< │       │                       │       │                           └── Scan: default.imdb.complete_cast (#0) (read rows: 135086)
+< │       │                       │       └── Probe
+< │       │                       │           └── Scan: default.imdb.title (#10) (read rows: 2528312)
+< │       │                       └── Probe
+< │       │                           └── Scan: default.imdb.movie_info (#8) (read rows: 14835720)
+---
+> │       │                   └── Scan: default.imdb.complete_cast (#0) (read rows: 135086)
+=========================
+results/23b_result.txt and results_with_accurate_his/23b_result.txt have different content
+47c47,71
+< │       │       │   └── Scan: default.imdb.kind_type (#6) (read rows: 7)
+---
+> │       │       │   └── HashJoin: INNER
+> │       │       │       ├── Build
+> │       │       │       │   └── Scan: default.imdb.info_type (#4) (read rows: 113)
+> │       │       │       └── Probe
+> │       │       │           └── HashJoin: INNER
+> │       │       │               ├── Build
+> │       │       │               │   └── Scan: default.imdb.company_type (#3) (read rows: 4)
+> │       │       │               └── Probe
+> │       │       │                   └── HashJoin: INNER
+> │       │       │                       ├── Build
+> │       │       │                       │   └── Scan: default.imdb.kind_type (#6) (read rows: 7)
+> │       │       │                       └── Probe
+> │       │       │                           └── HashJoin: INNER
+> │       │       │                               ├── Build
+> │       │       │                               │   └── HashJoin: INNER
+> │       │       │                               │       ├── Build
+> │       │       │                               │       │   └── HashJoin: INNER
+> │       │       │                               │       │       ├── Build
+> │       │       │                               │       │       │   └── Scan: default.imdb.company_name (#2) (read rows: 234997)
+> │       │       │                               │       │       └── Probe
+> │       │       │                               │       │           └── Scan: default.imdb.movie_companies (#7) (read rows: 2609129)
+> │       │       │                               │       └── Probe
+> │       │       │                               │           └── Scan: default.imdb.movie_info (#8) (read rows: 14835720)
+> │       │       │                               └── Probe
+> │       │       │                                   └── Scan: default.imdb.title (#10) (read rows: 2528312)
+51c75
+< │       │               │   └── Scan: default.imdb.info_type (#4) (read rows: 113)
+---
+> │       │               │   └── Scan: default.imdb.comp_cast_type (#1) (read rows: 4)
+53,77c77
+< │       │                   └── HashJoin: INNER
+< │       │                       ├── Build
+< │       │                       │   └── HashJoin: INNER
+< │       │                       │       ├── Build
+< │       │                       │       │   └── HashJoin: INNER
+< │       │                       │       │       ├── Build
+< │       │                       │       │       │   └── Scan: default.imdb.company_type (#3) (read rows: 4)
+< │       │                       │       │       └── Probe
+< │       │                       │       │           └── HashJoin: INNER
+< │       │                       │       │               ├── Build
+< │       │                       │       │               │   └── HashJoin: INNER
+< │       │                       │       │               │       ├── Build
+< │       │                       │       │               │       │   └── Scan: default.imdb.company_name (#2) (read rows: 234997)
+< │       │                       │       │               │       └── Probe
+< │       │                       │       │               │           └── Scan: default.imdb.movie_companies (#7) (read rows: 2609129)
+< │       │                       │       │               └── Probe
+< │       │                       │       │                   └── HashJoin: INNER
+< │       │                       │       │                       ├── Build
+< │       │                       │       │                       │   └── Scan: default.imdb.comp_cast_type (#1) (read rows: 4)
+< │       │                       │       │                       └── Probe
+< │       │                       │       │                           └── Scan: default.imdb.complete_cast (#0) (read rows: 135086)
+< │       │                       │       └── Probe
+< │       │                       │           └── Scan: default.imdb.title (#10) (read rows: 2528312)
+< │       │                       └── Probe
+< │       │                           └── Scan: default.imdb.movie_info (#8) (read rows: 14835720)
+---
+> │       │                   └── Scan: default.imdb.complete_cast (#0) (read rows: 135086)
+=========================
+results/23c_result.txt and results_with_accurate_his/23c_result.txt have different content
+48c48,72
+< │       │       │   └── Scan: default.imdb.kind_type (#6) (read rows: 7)
+---
+> │       │       │   └── HashJoin: INNER
+> │       │       │       ├── Build
+> │       │       │       │   └── Scan: default.imdb.info_type (#4) (read rows: 113)
+> │       │       │       └── Probe
+> │       │       │           └── HashJoin: INNER
+> │       │       │               ├── Build
+> │       │       │               │   └── Scan: default.imdb.company_type (#3) (read rows: 4)
+> │       │       │               └── Probe
+> │       │       │                   └── HashJoin: INNER
+> │       │       │                       ├── Build
+> │       │       │                       │   └── Scan: default.imdb.kind_type (#6) (read rows: 7)
+> │       │       │                       └── Probe
+> │       │       │                           └── HashJoin: INNER
+> │       │       │                               ├── Build
+> │       │       │                               │   └── HashJoin: INNER
+> │       │       │                               │       ├── Build
+> │       │       │                               │       │   └── HashJoin: INNER
+> │       │       │                               │       │       ├── Build
+> │       │       │                               │       │       │   └── Scan: default.imdb.company_name (#2) (read rows: 234997)
+> │       │       │                               │       │       └── Probe
+> │       │       │                               │       │           └── Scan: default.imdb.movie_companies (#7) (read rows: 2609129)
+> │       │       │                               │       └── Probe
+> │       │       │                               │           └── Scan: default.imdb.movie_info (#8) (read rows: 14835720)
+> │       │       │                               └── Probe
+> │       │       │                                   └── Scan: default.imdb.title (#10) (read rows: 2528312)
+52c76
+< │       │               │   └── Scan: default.imdb.info_type (#4) (read rows: 113)
+---
+> │       │               │   └── Scan: default.imdb.comp_cast_type (#1) (read rows: 4)
+54,78c78
+< │       │                   └── HashJoin: INNER
+< │       │                       ├── Build
+< │       │                       │   └── HashJoin: INNER
+< │       │                       │       ├── Build
+< │       │                       │       │   └── HashJoin: INNER
+< │       │                       │       │       ├── Build
+< │       │                       │       │       │   └── Scan: default.imdb.company_type (#3) (read rows: 4)
+< │       │                       │       │       └── Probe
+< │       │                       │       │           └── HashJoin: INNER
+< │       │                       │       │               ├── Build
+< │       │                       │       │               │   └── HashJoin: INNER
+< │       │                       │       │               │       ├── Build
+< │       │                       │       │               │       │   └── Scan: default.imdb.company_name (#2) (read rows: 234997)
+< │       │                       │       │               │       └── Probe
+< │       │                       │       │               │           └── Scan: default.imdb.movie_companies (#7) (read rows: 2609129)
+< │       │                       │       │               └── Probe
+< │       │                       │       │                   └── HashJoin: INNER
+< │       │                       │       │                       ├── Build
+< │       │                       │       │                       │   └── Scan: default.imdb.comp_cast_type (#1) (read rows: 4)
+< │       │                       │       │                       └── Probe
+< │       │                       │       │                           └── Scan: default.imdb.complete_cast (#0) (read rows: 135086)
+< │       │                       │       └── Probe
+< │       │                       │           └── Scan: default.imdb.title (#10) (read rows: 2528312)
+< │       │                       └── Probe
+< │       │                           └── Scan: default.imdb.movie_info (#8) (read rows: 14835720)
+---
+> │       │                   └── Scan: default.imdb.complete_cast (#0) (read rows: 135086)
+=========================
+results/24a_result.txt and results_with_accurate_his/24a_result.txt have different content
+80c80
+< │       │       │               │               │       │       │           └── Scan: default.imdb.title (#11) (read rows: 2528312)
+---
+> │       │       │               │               │       │       │           └── Scan: default.imdb.movie_companies (#6) (read rows: 2609129)
+82c82
+< │       │       │               │               │       │           └── Scan: default.imdb.movie_companies (#6) (read rows: 2609129)
+---
+> │       │       │               │               │       │           └── Scan: default.imdb.company_name (#3) (read rows: 234997)
+84c84
+< │       │       │               │               │           └── Scan: default.imdb.company_name (#3) (read rows: 234997)
+---
+> │       │       │               │               │           └── Scan: default.imdb.title (#11) (read rows: 2528312)
+=========================
+results/24b_result.txt and results_with_accurate_his/24b_result.txt have different content
+71c71,83
+< │       │       │               │       │       │       │   └── Scan: default.imdb.info_type (#4) (read rows: 113)
+---
+> │       │       │               │       │       │       │   └── HashJoin: INNER
+> │       │       │               │       │       │       │       ├── Build
+> │       │       │               │       │       │       │       │   └── Scan: default.imdb.info_type (#4) (read rows: 113)
+> │       │       │               │       │       │       │       └── Probe
+> │       │       │               │       │       │       │           └── HashJoin: INNER
+> │       │       │               │       │       │       │               ├── Build
+> │       │       │               │       │       │       │               │   └── HashJoin: INNER
+> │       │       │               │       │       │       │               │       ├── Build
+> │       │       │               │       │       │       │               │       │   └── Scan: default.imdb.company_name (#3) (read rows: 234997)
+> │       │       │               │       │       │       │               │       └── Probe
+> │       │       │               │       │       │       │               │           └── Scan: default.imdb.movie_companies (#6) (read rows: 2609129)
+> │       │       │               │       │       │       │               └── Probe
+> │       │       │               │       │       │       │                   └── Scan: default.imdb.movie_info (#7) (read rows: 14835720)
+73,85c85
+< │       │       │               │       │       │           └── HashJoin: INNER
+< │       │       │               │       │       │               ├── Build
+< │       │       │               │       │       │               │   └── HashJoin: INNER
+< │       │       │               │       │       │               │       ├── Build
+< │       │       │               │       │       │               │       │   └── HashJoin: INNER
+< │       │       │               │       │       │               │       │       ├── Build
+< │       │       │               │       │       │               │       │       │   └── Scan: default.imdb.company_name (#3) (read rows: 234997)
+< │       │       │               │       │       │               │       │       └── Probe
+< │       │       │               │       │       │               │       │           └── Scan: default.imdb.movie_companies (#6) (read rows: 2609129)
+< │       │       │               │       │       │               │       └── Probe
+< │       │       │               │       │       │               │           └── Scan: default.imdb.title (#11) (read rows: 2528312)
+< │       │       │               │       │       │               └── Probe
+< │       │       │               │       │       │                   └── Scan: default.imdb.movie_info (#7) (read rows: 14835720)
+---
+> │       │       │               │       │       │           └── Scan: default.imdb.title (#11) (read rows: 2528312)
+=========================
+results/26a_result.txt and results_with_accurate_his/26a_result.txt have different content
+55c55
+< │   └── Scan: default.imdb.info_type (#5) (read rows: 113)
+---
+> │   └── Scan: default.imdb.keyword (#6) (read rows: 134170)
+67c67
+<         │               │       │   └── Scan: default.imdb.keyword (#6) (read rows: 134170)
+---
+>         │               │       │   └── Scan: default.imdb.info_type (#5) (read rows: 113)
+93c93
+<         │               │                   └── Scan: default.imdb.movie_keyword (#9) (read rows: 4523930)
+---
+>         │               │                   └── Scan: default.imdb.movie_info_idx (#8) (read rows: 1380035)
+97c97
+<             └── Scan: default.imdb.movie_info_idx (#8) (read rows: 1380035)
+---
+>             └── Scan: default.imdb.movie_keyword (#9) (read rows: 4523930)
+=========================
+results/26b_result.txt and results_with_accurate_his/26b_result.txt have different content
+48c48,88
+< │   └── Scan: default.imdb.info_type (#5) (read rows: 113)
+---
+> │   └── HashJoin: INNER
+> │       ├── Build
+> │       │   └── HashJoin: INNER
+> │       │       ├── Build
+> │       │       │   └── Scan: default.imdb.kind_type (#7) (read rows: 7)
+> │       │       └── Probe
+> │       │           └── HashJoin: INNER
+> │       │               ├── Build
+> │       │               │   └── HashJoin: INNER
+> │       │               │       ├── Build
+> │       │               │       │   └── HashJoin: INNER
+> │       │               │       │       ├── Build
+> │       │               │       │       │   └── Scan: default.imdb.info_type (#5) (read rows: 113)
+> │       │               │       │       └── Probe
+> │       │               │       │           └── HashJoin: INNER
+> │       │               │       │               ├── Build
+> │       │               │       │               │   └── HashJoin: INNER
+> │       │               │       │               │       ├── Build
+> │       │               │       │               │       │   └── HashJoin: INNER
+> │       │               │       │               │       │       ├── Build
+> │       │               │       │               │       │       │   └── HashJoin: INNER
+> │       │               │       │               │       │       │       ├── Build
+> │       │               │       │               │       │       │       │   └── Scan: default.imdb.comp_cast_type (#2) (read rows: 4)
+> │       │               │       │               │       │       │       └── Probe
+> │       │               │       │               │       │       │           └── HashJoin: INNER
+> │       │               │       │               │       │       │               ├── Build
+> │       │               │       │               │       │       │               │   └── Scan: default.imdb.comp_cast_type (#1) (read rows: 4)
+> │       │               │       │               │       │       │               └── Probe
+> │       │               │       │               │       │       │                   └── Scan: default.imdb.complete_cast (#0) (read rows: 135086)
+> │       │               │       │               │       │       └── Probe
+> │       │               │       │               │       │           └── Scan: default.imdb.movie_info_idx (#8) (read rows: 1380035)
+> │       │               │       │               │       └── Probe
+> │       │               │       │               │           └── Scan: default.imdb.cast_info (#4) (read rows: 36244344)
+> │       │               │       │               └── Probe
+> │       │               │       │                   └── Scan: default.imdb.char_name (#3) (read rows: 3140339)
+> │       │               │       └── Probe
+> │       │               │           └── Scan: default.imdb.name (#10) (read rows: 4167491)
+> │       │               └── Probe
+> │       │                   └── Scan: default.imdb.title (#11) (read rows: 2528312)
+> │       └── Probe
+> │           └── Scan: default.imdb.movie_keyword (#9) (read rows: 4523930)
+50,90c90
+<     └── HashJoin: INNER
+<         ├── Build
+<         │   └── HashJoin: INNER
+<         │       ├── Build
+<         │       │   └── Scan: default.imdb.kind_type (#7) (read rows: 7)
+<         │       └── Probe
+<         │           └── HashJoin: INNER
+<         │               ├── Build
+<         │               │   └── HashJoin: INNER
+<         │               │       ├── Build
+<         │               │       │   └── Scan: default.imdb.keyword (#6) (read rows: 134170)
+<         │               │       └── Probe
+<         │               │           └── HashJoin: INNER
+<         │               │               ├── Build
+<         │               │               │   └── HashJoin: INNER
+<         │               │               │       ├── Build
+<         │               │               │       │   └── HashJoin: INNER
+<         │               │               │       │       ├── Build
+<         │               │               │       │       │   └── HashJoin: INNER
+<         │               │               │       │       │       ├── Build
+<         │               │               │       │       │       │   └── HashJoin: INNER
+<         │               │               │       │       │       │       ├── Build
+<         │               │               │       │       │       │       │   └── Scan: default.imdb.comp_cast_type (#2) (read rows: 4)
+<         │               │               │       │       │       │       └── Probe
+<         │               │               │       │       │       │           └── HashJoin: INNER
+<         │               │               │       │       │       │               ├── Build
+<         │               │               │       │       │       │               │   └── Scan: default.imdb.comp_cast_type (#1) (read rows: 4)
+<         │               │               │       │       │       │               └── Probe
+<         │               │               │       │       │       │                   └── Scan: default.imdb.complete_cast (#0) (read rows: 135086)
+<         │               │               │       │       │       └── Probe
+<         │               │               │       │       │           └── Scan: default.imdb.cast_info (#4) (read rows: 36244344)
+<         │               │               │       │       └── Probe
+<         │               │               │       │           └── Scan: default.imdb.char_name (#3) (read rows: 3140339)
+<         │               │               │       └── Probe
+<         │               │               │           └── Scan: default.imdb.name (#10) (read rows: 4167491)
+<         │               │               └── Probe
+<         │               │                   └── Scan: default.imdb.movie_keyword (#9) (read rows: 4523930)
+<         │               └── Probe
+<         │                   └── Scan: default.imdb.title (#11) (read rows: 2528312)
+<         └── Probe
+<             └── Scan: default.imdb.movie_info_idx (#8) (read rows: 1380035)
+---
+>     └── Scan: default.imdb.keyword (#6) (read rows: 134170)
+=========================
+results/28a_result.txt and results_with_accurate_his/28a_result.txt have different content
+72,88c72
+< │       │       │   └── HashJoin: INNER
+< │       │       │       ├── Build
+< │       │       │       │   └── Scan: default.imdb.kind_type (#8) (read rows: 7)
+< │       │       │       └── Probe
+< │       │       │           └── HashJoin: INNER
+< │       │       │               ├── Build
+< │       │       │               │   └── HashJoin: INNER
+< │       │       │               │       ├── Build
+< │       │       │               │       │   └── Scan: default.imdb.comp_cast_type (#2) (read rows: 4)
+< │       │       │               │       └── Probe
+< │       │       │               │           └── HashJoin: INNER
+< │       │       │               │               ├── Build
+< │       │       │               │               │   └── Scan: default.imdb.comp_cast_type (#1) (read rows: 4)
+< │       │       │               │               └── Probe
+< │       │       │               │                   └── Scan: default.imdb.complete_cast (#0) (read rows: 135086)
+< │       │       │               └── Probe
+< │       │       │                   └── Scan: default.imdb.title (#13) (read rows: 2528312)
+---
+> │       │       │   └── Scan: default.imdb.company_type (#4) (read rows: 4)
+92c76,96
+< │       │               │   └── Scan: default.imdb.info_type (#6) (read rows: 113)
+---
+> │       │               │   └── HashJoin: INNER
+> │       │               │       ├── Build
+> │       │               │       │   └── HashJoin: INNER
+> │       │               │       │       ├── Build
+> │       │               │       │       │   └── Scan: default.imdb.kind_type (#8) (read rows: 7)
+> │       │               │       │       └── Probe
+> │       │               │       │           └── HashJoin: INNER
+> │       │               │       │               ├── Build
+> │       │               │       │               │   └── HashJoin: INNER
+> │       │               │       │               │       ├── Build
+> │       │               │       │               │       │   └── Scan: default.imdb.comp_cast_type (#2) (read rows: 4)
+> │       │               │       │               │       └── Probe
+> │       │               │       │               │           └── HashJoin: INNER
+> │       │               │       │               │               ├── Build
+> │       │               │       │               │               │   └── Scan: default.imdb.comp_cast_type (#1) (read rows: 4)
+> │       │               │       │               │               └── Probe
+> │       │               │       │               │                   └── Scan: default.imdb.complete_cast (#0) (read rows: 135086)
+> │       │               │       │               └── Probe
+> │       │               │       │                   └── Scan: default.imdb.title (#13) (read rows: 2528312)
+> │       │               │       └── Probe
+> │       │               │           └── Scan: default.imdb.movie_companies (#9) (read rows: 2609129)
+94,102c98
+< │       │                   └── HashJoin: INNER
+< │       │                       ├── Build
+< │       │                       │   └── HashJoin: INNER
+< │       │                       │       ├── Build
+< │       │                       │       │   └── Scan: default.imdb.info_type (#5) (read rows: 113)
+< │       │                       │       └── Probe
+< │       │                       │           └── Scan: default.imdb.movie_info (#10) (read rows: 14835720)
+< │       │                       └── Probe
+< │       │                           └── Scan: default.imdb.movie_info_idx (#11) (read rows: 1380035)
+---
+> │       │                   └── Scan: default.imdb.company_name (#3) (read rows: 234997)
+106c102,106
+< │               │   └── Scan: default.imdb.company_type (#4) (read rows: 4)
+---
+> │               │   └── HashJoin: INNER
+> │               │       ├── Build
+> │               │       │   └── Scan: default.imdb.info_type (#5) (read rows: 113)
+> │               │       └── Probe
+> │               │           └── Scan: default.imdb.movie_info (#10) (read rows: 14835720)
+110c110
+< │                       │   └── Scan: default.imdb.company_name (#3) (read rows: 234997)
+---
+> │                       │   └── Scan: default.imdb.info_type (#6) (read rows: 113)
+112c112
+< │                           └── Scan: default.imdb.movie_companies (#9) (read rows: 2609129)
+---
+> │                           └── Scan: default.imdb.movie_info_idx (#11) (read rows: 1380035)
+=========================
+results/28b_result.txt and results_with_accurate_his/28b_result.txt have different content
+64,96c64
+< │       │   └── HashJoin: INNER
+< │       │       ├── Build
+< │       │       │   └── HashJoin: INNER
+< │       │       │       ├── Build
+< │       │       │       │   └── Scan: default.imdb.kind_type (#8) (read rows: 7)
+< │       │       │       └── Probe
+< │       │       │           └── HashJoin: INNER
+< │       │       │               ├── Build
+< │       │       │               │   └── HashJoin: INNER
+< │       │       │               │       ├── Build
+< │       │       │               │       │   └── Scan: default.imdb.comp_cast_type (#2) (read rows: 4)
+< │       │       │               │       └── Probe
+< │       │       │               │           └── HashJoin: INNER
+< │       │       │               │               ├── Build
+< │       │       │               │               │   └── Scan: default.imdb.comp_cast_type (#1) (read rows: 4)
+< │       │       │               │               └── Probe
+< │       │       │               │                   └── Scan: default.imdb.complete_cast (#0) (read rows: 135086)
+< │       │       │               └── Probe
+< │       │       │                   └── Scan: default.imdb.title (#13) (read rows: 2528312)
+< │       │       └── Probe
+< │       │           └── HashJoin: INNER
+< │       │               ├── Build
+< │       │               │   └── Scan: default.imdb.info_type (#6) (read rows: 113)
+< │       │               └── Probe
+< │       │                   └── HashJoin: INNER
+< │       │                       ├── Build
+< │       │                       │   └── HashJoin: INNER
+< │       │                       │       ├── Build
+< │       │                       │       │   └── Scan: default.imdb.info_type (#5) (read rows: 113)
+< │       │                       │       └── Probe
+< │       │                       │           └── Scan: default.imdb.movie_info (#10) (read rows: 14835720)
+< │       │                       └── Probe
+< │       │                           └── Scan: default.imdb.movie_info_idx (#11) (read rows: 1380035)
+---
+> │       │   └── Scan: default.imdb.keyword (#7) (read rows: 134170)
+100c68,84
+< │               │   └── Scan: default.imdb.company_type (#4) (read rows: 4)
+---
+> │               │   └── HashJoin: INNER
+> │               │       ├── Build
+> │               │       │   └── Scan: default.imdb.kind_type (#8) (read rows: 7)
+> │               │       └── Probe
+> │               │           └── HashJoin: INNER
+> │               │               ├── Build
+> │               │               │   └── HashJoin: INNER
+> │               │               │       ├── Build
+> │               │               │       │   └── Scan: default.imdb.comp_cast_type (#2) (read rows: 4)
+> │               │               │       └── Probe
+> │               │               │           └── HashJoin: INNER
+> │               │               │               ├── Build
+> │               │               │               │   └── Scan: default.imdb.comp_cast_type (#1) (read rows: 4)
+> │               │               │               └── Probe
+> │               │               │                   └── Scan: default.imdb.complete_cast (#0) (read rows: 135086)
+> │               │               └── Probe
+> │               │                   └── Scan: default.imdb.title (#13) (read rows: 2528312)
+102,106c86
+< │                   └── HashJoin: INNER
+< │                       ├── Build
+< │                       │   └── Scan: default.imdb.company_name (#3) (read rows: 234997)
+< │                       └── Probe
+< │                           └── Scan: default.imdb.movie_companies (#9) (read rows: 2609129)
+---
+> │                   └── Scan: default.imdb.movie_keyword (#12) (read rows: 4523930)
+110c90
+<         │   └── Scan: default.imdb.keyword (#7) (read rows: 134170)
+---
+>         │   └── Scan: default.imdb.company_type (#4) (read rows: 4)
+112c92,112
+<             └── Scan: default.imdb.movie_keyword (#12) (read rows: 4523930)
+---
+>             └── HashJoin: INNER
+>                 ├── Build
+>                 │   └── HashJoin: INNER
+>                 │       ├── Build
+>                 │       │   └── HashJoin: INNER
+>                 │       │       ├── Build
+>                 │       │       │   └── Scan: default.imdb.info_type (#6) (read rows: 113)
+>                 │       │       └── Probe
+>                 │       │           └── HashJoin: INNER
+>                 │       │               ├── Build
+>                 │       │               │   └── HashJoin: INNER
+>                 │       │               │       ├── Build
+>                 │       │               │       │   └── Scan: default.imdb.info_type (#5) (read rows: 113)
+>                 │       │               │       └── Probe
+>                 │       │               │           └── Scan: default.imdb.movie_info (#10) (read rows: 14835720)
+>                 │       │               └── Probe
+>                 │       │                   └── Scan: default.imdb.movie_info_idx (#11) (read rows: 1380035)
+>                 │       └── Probe
+>                 │           └── Scan: default.imdb.movie_companies (#9) (read rows: 2609129)
+>                 └── Probe
+>                     └── Scan: default.imdb.company_name (#3) (read rows: 234997)
+=========================
+results/28c_result.txt and results_with_accurate_his/28c_result.txt have different content
+70,98c70
+< │       │   └── HashJoin: INNER
+< │       │       ├── Build
+< │       │       │   └── Scan: default.imdb.company_type (#4) (read rows: 4)
+< │       │       └── Probe
+< │       │           └── HashJoin: INNER
+< │       │               ├── Build
+< │       │               │   └── HashJoin: INNER
+< │       │               │       ├── Build
+< │       │               │       │   └── HashJoin: INNER
+< │       │               │       │       ├── Build
+< │       │               │       │       │   └── Scan: default.imdb.kind_type (#8) (read rows: 7)
+< │       │               │       │       └── Probe
+< │       │               │       │           └── HashJoin: INNER
+< │       │               │       │               ├── Build
+< │       │               │       │               │   └── HashJoin: INNER
+< │       │               │       │               │       ├── Build
+< │       │               │       │               │       │   └── Scan: default.imdb.comp_cast_type (#2) (read rows: 4)
+< │       │               │       │               │       └── Probe
+< │       │               │       │               │           └── HashJoin: INNER
+< │       │               │       │               │               ├── Build
+< │       │               │       │               │               │   └── Scan: default.imdb.comp_cast_type (#1) (read rows: 4)
+< │       │               │       │               │               └── Probe
+< │       │               │       │               │                   └── Scan: default.imdb.complete_cast (#0) (read rows: 135086)
+< │       │               │       │               └── Probe
+< │       │               │       │                   └── Scan: default.imdb.title (#13) (read rows: 2528312)
+< │       │               │       └── Probe
+< │       │               │           └── Scan: default.imdb.movie_companies (#9) (read rows: 2609129)
+< │       │               └── Probe
+< │       │                   └── Scan: default.imdb.company_name (#3) (read rows: 234997)
+---
+> │       │   └── Scan: default.imdb.keyword (#7) (read rows: 134170)
+102c74,110
+< │               │   └── Scan: default.imdb.info_type (#6) (read rows: 113)
+---
+> │               │   └── HashJoin: INNER
+> │               │       ├── Build
+> │               │       │   └── HashJoin: INNER
+> │               │       │       ├── Build
+> │               │       │       │   └── Scan: default.imdb.company_type (#4) (read rows: 4)
+> │               │       │       └── Probe
+> │               │       │           └── HashJoin: INNER
+> │               │       │               ├── Build
+> │               │       │               │   └── HashJoin: INNER
+> │               │       │               │       ├── Build
+> │               │       │               │       │   └── HashJoin: INNER
+> │               │       │               │       │       ├── Build
+> │               │       │               │       │       │   └── Scan: default.imdb.kind_type (#8) (read rows: 7)
+> │               │       │               │       │       └── Probe
+> │               │       │               │       │           └── HashJoin: INNER
+> │               │       │               │       │               ├── Build
+> │               │       │               │       │               │   └── HashJoin: INNER
+> │               │       │               │       │               │       ├── Build
+> │               │       │               │       │               │       │   └── Scan: default.imdb.comp_cast_type (#2) (read rows: 4)
+> │               │       │               │       │               │       └── Probe
+> │               │       │               │       │               │           └── HashJoin: INNER
+> │               │       │               │       │               │               ├── Build
+> │               │       │               │       │               │               │   └── Scan: default.imdb.comp_cast_type (#1) (read rows: 4)
+> │               │       │               │       │               │               └── Probe
+> │               │       │               │       │               │                   └── Scan: default.imdb.complete_cast (#0) (read rows: 135086)
+> │               │       │               │       │               └── Probe
+> │               │       │               │       │                   └── Scan: default.imdb.title (#13) (read rows: 2528312)
+> │               │       │               │       └── Probe
+> │               │       │               │           └── Scan: default.imdb.movie_companies (#9) (read rows: 2609129)
+> │               │       │               └── Probe
+> │               │       │                   └── Scan: default.imdb.company_name (#3) (read rows: 234997)
+> │               │       └── Probe
+> │               │           └── HashJoin: INNER
+> │               │               ├── Build
+> │               │               │   └── Scan: default.imdb.info_type (#5) (read rows: 113)
+> │               │               └── Probe
+> │               │                   └── Scan: default.imdb.movie_info (#10) (read rows: 14835720)
+104,112c112
+< │                   └── HashJoin: INNER
+< │                       ├── Build
+< │                       │   └── HashJoin: INNER
+< │                       │       ├── Build
+< │                       │       │   └── Scan: default.imdb.info_type (#5) (read rows: 113)
+< │                       │       └── Probe
+< │                       │           └── Scan: default.imdb.movie_info (#10) (read rows: 14835720)
+< │                       └── Probe
+< │                           └── Scan: default.imdb.movie_info_idx (#11) (read rows: 1380035)
+---
+> │                   └── Scan: default.imdb.movie_keyword (#12) (read rows: 4523930)
+116c116
+<         │   └── Scan: default.imdb.keyword (#7) (read rows: 134170)
+---
+>         │   └── Scan: default.imdb.info_type (#6) (read rows: 113)
+118c118
+<             └── Scan: default.imdb.movie_keyword (#12) (read rows: 4523930)
+---
+>             └── Scan: default.imdb.movie_info_idx (#11) (read rows: 1380035)
+=========================
+results/33a_result.txt and results_with_accurate_his/33a_result.txt have different content
+60c60
+< │               │       │   └── Scan: default.imdb.company_name (#0) (read rows: 234997)
+---
+> │               │       │   └── Scan: default.imdb.info_type (#3) (read rows: 113)
+62c62,94
+< │               │           └── Scan: default.imdb.movie_companies (#7) (read rows: 2609129)
+---
+> │               │           └── HashJoin: INNER
+> │               │               ├── Build
+> │               │               │   └── HashJoin: INNER
+> │               │               │       ├── Build
+> │               │               │       │   └── HashJoin: INNER
+> │               │               │       │       ├── Build
+> │               │               │       │       │   └── HashJoin: INNER
+> │               │               │       │       │       ├── Build
+> │               │               │       │       │       │   └── Scan: default.imdb.kind_type (#4) (read rows: 7)
+> │               │               │       │       │       └── Probe
+> │               │               │       │       │           └── HashJoin: INNER
+> │               │               │       │       │               ├── Build
+> │               │               │       │       │               │   └── HashJoin: INNER
+> │               │               │       │       │               │       ├── Build
+> │               │               │       │       │               │       │   └── Scan: default.imdb.kind_type (#5) (read rows: 7)
+> │               │               │       │       │               │       └── Probe
+> │               │               │       │       │               │           └── HashJoin: INNER
+> │               │               │       │       │               │               ├── Build
+> │               │               │       │       │               │               │   └── HashJoin: INNER
+> │               │               │       │       │               │               │       ├── Build
+> │               │               │       │       │               │               │       │   └── Scan: default.imdb.link_type (#6) (read rows: 18)
+> │               │               │       │       │               │               │       └── Probe
+> │               │               │       │       │               │               │           └── Scan: default.imdb.movie_link (#11) (read rows: 29997)
+> │               │               │       │       │               │               └── Probe
+> │               │               │       │       │               │                   └── Scan: default.imdb.title (#13) (read rows: 2528312)
+> │               │               │       │       │               └── Probe
+> │               │               │       │       │                   └── Scan: default.imdb.title (#12) (read rows: 2528312)
+> │               │               │       │       └── Probe
+> │               │               │       │           └── Scan: default.imdb.movie_companies (#8) (read rows: 2609129)
+> │               │               │       └── Probe
+> │               │               │           └── Scan: default.imdb.company_name (#1) (read rows: 234997)
+> │               │               └── Probe
+> │               │                   └── Scan: default.imdb.movie_info_idx (#10) (read rows: 1380035)
+68c100
+<         │   └── Scan: default.imdb.info_type (#3) (read rows: 113)
+---
+>         │   └── Scan: default.imdb.company_name (#0) (read rows: 234997)
+70,102c102
+<             └── HashJoin: INNER
+<                 ├── Build
+<                 │   └── HashJoin: INNER
+<                 │       ├── Build
+<                 │       │   └── HashJoin: INNER
+<                 │       │       ├── Build
+<                 │       │       │   └── HashJoin: INNER
+<                 │       │       │       ├── Build
+<                 │       │       │       │   └── Scan: default.imdb.kind_type (#4) (read rows: 7)
+<                 │       │       │       └── Probe
+<                 │       │       │           └── HashJoin: INNER
+<                 │       │       │               ├── Build
+<                 │       │       │               │   └── HashJoin: INNER
+<                 │       │       │               │       ├── Build
+<                 │       │       │               │       │   └── Scan: default.imdb.kind_type (#5) (read rows: 7)
+<                 │       │       │               │       └── Probe
+<                 │       │       │               │           └── HashJoin: INNER
+<                 │       │       │               │               ├── Build
+<                 │       │       │               │               │   └── HashJoin: INNER
+<                 │       │       │               │               │       ├── Build
+<                 │       │       │               │               │       │   └── Scan: default.imdb.link_type (#6) (read rows: 18)
+<                 │       │       │               │               │       └── Probe
+<                 │       │       │               │               │           └── Scan: default.imdb.movie_link (#11) (read rows: 29997)
+<                 │       │       │               │               └── Probe
+<                 │       │       │               │                   └── Scan: default.imdb.title (#13) (read rows: 2528312)
+<                 │       │       │               └── Probe
+<                 │       │       │                   └── Scan: default.imdb.title (#12) (read rows: 2528312)
+<                 │       │       └── Probe
+<                 │       │           └── Scan: default.imdb.movie_companies (#8) (read rows: 2609129)
+<                 │       └── Probe
+<                 │           └── Scan: default.imdb.company_name (#1) (read rows: 234997)
+<                 └── Probe
+<                     └── Scan: default.imdb.movie_info_idx (#10) (read rows: 1380035)
+---
+>             └── Scan: default.imdb.movie_companies (#7) (read rows: 2609129)
+=========================
+results/4a_result.txt and results_with_accurate_his/4a_result.txt have different content
+19c19,31
+< │   └── Scan: default.imdb.info_type (#0) (read rows: 113)
+---
+> │   └── HashJoin: INNER
+> │       ├── Build
+> │       │   └── Scan: default.imdb.info_type (#0) (read rows: 113)
+> │       └── Probe
+> │           └── HashJoin: INNER
+> │               ├── Build
+> │               │   └── HashJoin: INNER
+> │               │       ├── Build
+> │               │       │   └── Scan: default.imdb.keyword (#1) (read rows: 134170)
+> │               │       └── Probe
+> │               │           └── Scan: default.imdb.movie_keyword (#3) (read rows: 4523930)
+> │               └── Probe
+> │                   └── Scan: default.imdb.movie_info_idx (#2) (read rows: 1380035)
+21,33c33
+<     └── HashJoin: INNER
+<         ├── Build
+<         │   └── HashJoin: INNER
+<         │       ├── Build
+<         │       │   └── HashJoin: INNER
+<         │       │       ├── Build
+<         │       │       │   └── Scan: default.imdb.keyword (#1) (read rows: 134170)
+<         │       │       └── Probe
+<         │       │           └── Scan: default.imdb.movie_keyword (#3) (read rows: 4523930)
+<         │       └── Probe
+<         │           └── Scan: default.imdb.title (#4) (read rows: 2528312)
+<         └── Probe
+<             └── Scan: default.imdb.movie_info_idx (#2) (read rows: 1380035)
+---
+>     └── Scan: default.imdb.title (#4) (read rows: 2528312)
+=========================
+results/4b_result.txt and results_with_accurate_his/4b_result.txt have different content
+19c19,31
+< │   └── Scan: default.imdb.info_type (#0) (read rows: 113)
+---
+> │   └── HashJoin: INNER
+> │       ├── Build
+> │       │   └── Scan: default.imdb.info_type (#0) (read rows: 113)
+> │       └── Probe
+> │           └── HashJoin: INNER
+> │               ├── Build
+> │               │   └── Scan: default.imdb.keyword (#1) (read rows: 134170)
+> │               └── Probe
+> │                   └── HashJoin: INNER
+> │                       ├── Build
+> │                       │   └── Scan: default.imdb.movie_info_idx (#2) (read rows: 1380035)
+> │                       └── Probe
+> │                           └── Scan: default.imdb.movie_keyword (#3) (read rows: 4523930)
+21,33c33
+<     └── HashJoin: INNER
+<         ├── Build
+<         │   └── HashJoin: INNER
+<         │       ├── Build
+<         │       │   └── HashJoin: INNER
+<         │       │       ├── Build
+<         │       │       │   └── Scan: default.imdb.keyword (#1) (read rows: 134170)
+<         │       │       └── Probe
+<         │       │           └── Scan: default.imdb.movie_keyword (#3) (read rows: 4523930)
+<         │       └── Probe
+<         │           └── Scan: default.imdb.title (#4) (read rows: 2528312)
+<         └── Probe
+<             └── Scan: default.imdb.movie_info_idx (#2) (read rows: 1380035)
+---
+>     └── Scan: default.imdb.title (#4) (read rows: 2528312)
+=========================
+results/6b_result.txt and results_with_accurate_his/6b_result.txt have different content
+30,34c30
+< │       │       │   └── HashJoin: INNER
+< │       │       │       ├── Build
+< │       │       │       │   └── Scan: default.imdb.name (#3) (read rows: 4167491)
+< │       │       │       └── Probe
+< │       │       │           └── Scan: default.imdb.cast_info (#0) (read rows: 36244344)
+---
+> │       │       │   └── Scan: default.imdb.title (#4) (read rows: 2528312)
+36c32,36
+< │       │           └── Scan: default.imdb.title (#4) (read rows: 2528312)
+---
+> │       │           └── HashJoin: INNER
+> │       │               ├── Build
+> │       │               │   └── Scan: default.imdb.name (#3) (read rows: 4167491)
+> │       │               └── Probe
+> │       │                   └── Scan: default.imdb.cast_info (#0) (read rows: 36244344)
+=========================
+results/6d_result.txt and results_with_accurate_his/6d_result.txt have different content
+26c26,38
+< │   └── Scan: default.imdb.keyword (#1) (read rows: 134170)
+---
+> │   └── HashJoin: INNER
+> │       ├── Build
+> │       │   └── Scan: default.imdb.keyword (#1) (read rows: 134170)
+> │       └── Probe
+> │           └── HashJoin: INNER
+> │               ├── Build
+> │               │   └── HashJoin: INNER
+> │               │       ├── Build
+> │               │       │   └── Scan: default.imdb.name (#3) (read rows: 4167491)
+> │               │       └── Probe
+> │               │           └── Scan: default.imdb.cast_info (#0) (read rows: 36244344)
+> │               └── Probe
+> │                   └── Scan: default.imdb.movie_keyword (#2) (read rows: 4523930)
+28,40c40
+<     └── HashJoin: INNER
+<         ├── Build
+<         │   └── HashJoin: INNER
+<         │       ├── Build
+<         │       │   └── HashJoin: INNER
+<         │       │       ├── Build
+<         │       │       │   └── Scan: default.imdb.name (#3) (read rows: 4167491)
+<         │       │       └── Probe
+<         │       │           └── Scan: default.imdb.cast_info (#0) (read rows: 36244344)
+<         │       └── Probe
+<         │           └── Scan: default.imdb.title (#4) (read rows: 2528312)
+<         └── Probe
+<             └── Scan: default.imdb.movie_keyword (#2) (read rows: 4523930)
+---
+>     └── Scan: default.imdb.title (#4) (read rows: 2528312)
+=========================
+results/6e_result.txt and results_with_accurate_his/6e_result.txt have different content
+29c29
+< │       │           └── Scan: default.imdb.title (#4) (read rows: 2528312)
+---
+> │       │           └── Scan: default.imdb.cast_info (#0) (read rows: 36244344)
+31c31
+< │           └── Scan: default.imdb.cast_info (#0) (read rows: 36244344)
+---
+> │           └── Scan: default.imdb.name (#3) (read rows: 4167491)
+33c33
+<     └── Scan: default.imdb.name (#3) (read rows: 4167491)
+---
+>     └── Scan: default.imdb.title (#4) (read rows: 2528312)
+=========================
+results/6f_result.txt and results_with_accurate_his/6f_result.txt have different content
+31c31,35
+<         │       │   └── Scan: default.imdb.title (#4) (read rows: 2528312)
+---
+>         │       │   └── HashJoin: INNER
+>         │       │       ├── Build
+>         │       │       │   └── Scan: default.imdb.keyword (#1) (read rows: 134170)
+>         │       │       └── Probe
+>         │       │           └── Scan: default.imdb.movie_keyword (#2) (read rows: 4523930)
+33,37c37
+<         │           └── HashJoin: INNER
+<         │               ├── Build
+<         │               │   └── Scan: default.imdb.keyword (#1) (read rows: 134170)
+<         │               └── Probe
+<         │                   └── Scan: default.imdb.movie_keyword (#2) (read rows: 4523930)
+---
+>         │           └── Scan: default.imdb.title (#4) (read rows: 2528312)
+=========================

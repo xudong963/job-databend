@@ -1,0 +1,79 @@
+>>>> explain join SELECT MIN(n.name) AS voicing_actress,
+       MIN(t.title) AS voiced_movie
+FROM aka_name AS an,
+     char_name AS chn,
+     cast_info AS ci,
+     company_name AS cn,
+     info_type AS it,
+     movie_companies AS mc,
+     movie_info AS mi,
+     name AS n,
+     role_type AS rt,
+     title AS t
+WHERE ci.note IN ('(voice)',
+                  '(voice: Japanese version)',
+                  '(voice) (uncredited)',
+                  '(voice: English version)')
+  AND cn.country_code ='[us]'
+  AND it.info = 'release dates'
+  AND mc.note IS NOT NULL
+  AND (mc.note LIKE '%(USA)%'
+       OR mc.note LIKE '%(worldwide)%')
+  AND mi.info IS NOT NULL
+  AND (mi.info LIKE 'Japan:%200%'
+       OR mi.info LIKE 'USA:%200%')
+  AND n.gender ='f'
+  AND n.name LIKE '%Ang%'
+  AND rt.role ='actress'
+  AND t.production_year BETWEEN 2005 AND 2009
+  AND t.id = mi.movie_id
+  AND t.id = mc.movie_id
+  AND t.id = ci.movie_id
+  AND mc.movie_id = ci.movie_id
+  AND mc.movie_id = mi.movie_id
+  AND mi.movie_id = ci.movie_id
+  AND cn.id = mc.company_id
+  AND it.id = mi.info_type_id
+  AND n.id = ci.person_id
+  AND rt.id = ci.role_id
+  AND n.id = an.person_id
+  AND ci.person_id = an.person_id
+  AND chn.id = ci.person_role_id;
+HashJoin: INNER
+├── Build
+│   └── HashJoin: INNER
+│       ├── Build
+│       │   └── HashJoin: INNER
+│       │       ├── Build
+│       │       │   └── HashJoin: INNER
+│       │       │       ├── Build
+│       │       │       │   └── HashJoin: INNER
+│       │       │       │       ├── Build
+│       │       │       │       │   └── HashJoin: INNER
+│       │       │       │       │       ├── Build
+│       │       │       │       │       │   └── Scan: default.imdb.role_type (#8) (read rows: 12)
+│       │       │       │       │       └── Probe
+│       │       │       │       │           └── HashJoin: INNER
+│       │       │       │       │               ├── Build
+│       │       │       │       │               │   └── HashJoin: INNER
+│       │       │       │       │               │       ├── Build
+│       │       │       │       │               │       │   └── Scan: default.imdb.company_name (#3) (read rows: 234997)
+│       │       │       │       │               │       └── Probe
+│       │       │       │       │               │           └── Scan: default.imdb.movie_companies (#5) (read rows: 2609129)
+│       │       │       │       │               └── Probe
+│       │       │       │       │                   └── Scan: default.imdb.cast_info (#2) (read rows: 36244344)
+│       │       │       │       └── Probe
+│       │       │       │           └── Scan: default.imdb.name (#7) (read rows: 4167491)
+│       │       │       └── Probe
+│       │       │           └── Scan: default.imdb.char_name (#1) (read rows: 3140339)
+│       │       └── Probe
+│       │           └── Scan: default.imdb.title (#9) (read rows: 2528312)
+│       └── Probe
+│           └── Scan: default.imdb.aka_name (#0) (read rows: 901343)
+└── Probe
+    └── HashJoin: INNER
+        ├── Build
+        │   └── Scan: default.imdb.info_type (#4) (read rows: 113)
+        └── Probe
+            └── Scan: default.imdb.movie_info (#6) (read rows: 14835720)
+<<<<
